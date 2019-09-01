@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MmrChecker</string>
+
+    <string name="solo_mmr_et">Solo mmr</string>
+    <string name="party_mmr_et">Party mmr</string>
+    <string name="estimated_mmr_et">Estimated mmr</string>
+    <string name="data_et">null</string>
+    <string name="search_bt">Search player</string>
 </resources>

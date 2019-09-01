@@ -8,4 +8,48 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginRight">25dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@android:drawable/editbox_background_normal</item>
+    </style>
+
+    <style name="AppTheme.ImageView">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:minHeight">150dp</item>
+        <item name="android:minWidth">150dp</item>
+    </style>
+
+    <style name="AppTheme.TextViewDescription">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:minWidth">100dp</item>
+    </style>
+
+    <style name="AppTheme.TextViewData">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+    </style>
+
+    <style name="AppTheme.Button">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginRight">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">@drawable/bt</item>
+        <item name="android:textColor">@android:color/primary_text_dark</item>
+    </style>
+
 </resources>

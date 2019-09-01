@@ -11,10 +11,7 @@
         android:id="@+id/playerIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:minWidth="150dp"
-        android:minHeight="150dp"
+        style="@style/AppTheme.ImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,10 +19,8 @@
         android:id="@+id/soloMmr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:minWidth="100dp"
-        android:text="Solo mmr"
+        style="@style/AppTheme.TextViewDescription"
+        android:text="@string/solo_mmr_et"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerIcon" />
 
@@ -33,10 +28,8 @@
         android:id="@+id/textViewSoloMmr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-
-        android:text="null"
+        style="@style/AppTheme.TextViewData"
+        android:text="@string/data_et"
         app:layout_constraintStart_toEndOf="@+id/soloMmr"
         app:layout_constraintTop_toBottomOf="@+id/playerIcon" />
 
@@ -44,10 +37,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:minWidth="100dp"
-        android:text="Party mmr"
+        style="@style/AppTheme.TextViewDescription"
+        android:text="@string/party_mmr_et"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soloMmr" />
 
@@ -55,9 +46,8 @@
         android:id="@+id/textViewPartyMmr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="null"
+        style="@style/AppTheme.TextViewData"
+        android:text="@string/data_et"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textViewSoloMmr" />
 
@@ -65,10 +55,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:minWidth="100dp"
-        android:text="Estimated mmr"
+        style="@style/AppTheme.TextViewDescription"
+        android:text="@string/estimated_mmr_et"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -76,25 +64,16 @@
         android:id="@+id/textViewEstimatedMmr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="null"
+        style="@style/AppTheme.TextViewData"
+        android:text="@string/data_et"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textViewPartyMmr" />
 
 <EditText
         android:id="@+id/etPlayerId"
-        style="@android:style/Widget.EditText"
+        style="@style/AppTheme.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:inputType="number"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/playerIcon"
@@ -104,14 +83,8 @@
         android:id="@+id/buttonSearchPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:minWidth="64dp"
-        android:minHeight="36dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="Search player"
+        style="@style/AppTheme.Button"
+        android:text="@string/search_bt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/playerIcon"
         app:layout_constraintTop_toBottomOf="@+id/etPlayerId" />

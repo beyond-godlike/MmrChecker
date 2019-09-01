@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.TextViewDescription">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="AppTheme.TextViewData">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+</resources>
