@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewPartyMmr" />
 
 <EditText
-        android:id="@+id/matchId"
+        android:id="@+id/etPlayerId"
         style="@android:style/Widget.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,5 +114,5 @@
         android:text="Search player"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/playerIcon"
-        app:layout_constraintTop_toBottomOf="@+id/matchId" />
+        app:layout_constraintTop_toBottomOf="@+id/etPlayerId" />
 </android.support.constraint.ConstraintLayout>

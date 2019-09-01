@@ -1,30 +1,26 @@
 package com.unava.dia.mmrchecker
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v7.app.AppCompatActivity
 import com.unava.dia.mmrchecker.data.AccInformation
-import com.unava.dia.mmrchecker.network.APIInterface
-import com.unava.dia.mmrchecker.network.ApiFactory
-import com.unava.dia.mmrchecker.network.ProfileRepository
+import com.unava.dia.mmrchecker.data.api.ApiFactory
+import com.unava.dia.mmrchecker.data.api.ProfileRepository
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
-import retrofit2.HttpException
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity() {
 
-    var playerId: String = "235632094"
     var accInfo: AccInformation? = null
     var avatarUrl: String? = null
 
     private val parentJob = Job()
     private val coroutineContext: CoroutineContext
-    get() = parentJob + Dispatchers.Default
+        get() = parentJob + Dispatchers.Default
 
     private val scope = CoroutineScope(coroutineContext)
 
-    private val repository : ProfileRepository = ProfileRepository(ApiFactory.apiInstance)
+    private val repository: ProfileRepository = ProfileRepository(ApiFactory.apiInstance)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,16 +30,17 @@ class MainActivity : AppCompatActivity() {
         accInfo = AccInformation()
 
         buttonSearchPlayer.setOnClickListener {
-            fetchAccInfo(playerId)
+            fetchAccInfo(etPlayerId.text.toString())
 
             textViewEstimatedMmr.text = accInfo?.mmr_estimate?.estimate.toString()
             textViewSoloMmr.text = accInfo?.solo_competitive_rank
             textViewPartyMmr.text = accInfo?.competitive_rank
+
         }
     }
-	
+
     private fun fetchAccInfo(id: String) {
-		scope.launch {
+        scope.launch {
             accInfo = repository.getPlayerInfo(id)
         }
     }

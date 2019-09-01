@@ -1,4 +1,4 @@
-package com.unava.dia.mmrchecker.network
+package com.unava.dia.mmrchecker.data.api
 
 import java.lang.Exception
 
