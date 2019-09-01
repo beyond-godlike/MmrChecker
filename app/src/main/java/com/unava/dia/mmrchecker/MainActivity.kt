@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.unava.dia.mmrchecker.data.AccInformation
 import com.unava.dia.mmrchecker.data.api.ApiFactory
 import com.unava.dia.mmrchecker.data.api.ProfileRepository
+import com.unava.dia.mmrchecker.utils.GlideUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         buttonSearchPlayer.setOnClickListener {
             fetchAccInfo(etPlayerId.text.toString())
 
+            GlideUtil.setPlayerIcon(playerIcon, accInfo?.profile?.avatarfull.toString())
             textViewEstimatedMmr.text = accInfo?.mmr_estimate?.estimate.toString()
             textViewSoloMmr.text = accInfo?.solo_competitive_rank
             textViewPartyMmr.text = accInfo?.competitive_rank
