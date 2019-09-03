@@ -1,26 +1,27 @@
 package com.unava.dia.mmrchecker.ui
 
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.unava.dia.mmrchecker.R
-import com.unava.dia.mmrchecker.data.AccInformation
-import com.unava.dia.mmrchecker.data.api.ApiFactory
-import com.unava.dia.mmrchecker.data.api.ProfileRepository
 import com.unava.dia.mmrchecker.utils.GlideUtil
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainActivityViewModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AndroidInjection.inject(this)
         this.bindViewModel()
 
         buttonSearchPlayer.setOnClickListener {
@@ -29,12 +30,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindViewModel() {
-        this.viewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
+        this.viewModel = ViewModelProviders.of(this, viewModelFactory)[MainActivityViewModel::class.java]
         this.observeViewModel()
     }
 
     private fun observeViewModel() {
-        this.viewModel.requestErrSubject.observe(this, Observer { error ->
+        this.viewModel.requestError.observe(this, Observer { error ->
             Toast.makeText(this, error, Toast.LENGTH_LONG).show()
         })
         this.viewModel.accInfo.observe(this, Observer {

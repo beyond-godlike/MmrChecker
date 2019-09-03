@@ -1,14 +1,11 @@
 package com.unava.dia.mmrchecker.ui
 
 import com.unava.dia.mmrchecker.data.AccInformation
-import com.unava.dia.mmrchecker.data.api.ApiFactory
 import com.unava.dia.mmrchecker.data.api.ProfileRepository
+import javax.inject.Inject
 
-class MainActivityModel {
-    // TODO inject repository here
-    private val repository: ProfileRepository = ProfileRepository(ApiFactory.apiInstance)
-
-    suspend fun getPlayerInfoAsync (id: String): AccInformation? {
+class MainActivityModel @Inject constructor(private var repository: ProfileRepository) {
+    suspend fun getPlayerInfoAsync(id: String): AccInformation? {
         return this.repository.getPlayerInfoAsync(id)
     }
 }
