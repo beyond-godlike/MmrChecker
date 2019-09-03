@@ -4,13 +4,11 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.unava.dia.mmrchecker.data.AccInformation
 import kotlinx.coroutines.*
+import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class MainActivityViewModel : ViewModel() {
-
-    val requestResult: MutableLiveData<Boolean> = MutableLiveData()
-    val requestErrSubject: MutableLiveData<String> = MutableLiveData()
-    val loadingSubject: MutableLiveData<Boolean> = MutableLiveData()
+class MainActivityViewModel @Inject constructor(private val model: MainActivityModel) : ViewModel() {
+    val requestError: MutableLiveData<String> = MutableLiveData()
 
     var accInfo: MutableLiveData<AccInformation> = MutableLiveData()
 
@@ -20,23 +18,16 @@ class MainActivityViewModel : ViewModel() {
 
     private val scope = CoroutineScope(coroutineContext)
 
-    // TODO inject model yeah
-    private val model = MainActivityModel()
-
     fun fetchAccInfo(id: String) {
         scope.launch {
             try {
                 val response = model.getPlayerInfoAsync(id)
                 if (response != null) {
-                        accInfo.postValue(response)
-                        requestResult.postValue(true)
-                    } else {
-                        requestResult.postValue(false)
-                    }
+                    accInfo.postValue(response)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
-                loadingSubject.postValue(false)
-                requestErrSubject.postValue(e.localizedMessage)
+                requestError.postValue(e.localizedMessage)
             }
         }
     }
