@@ -2,13 +2,17 @@ package com.unava.dia.mmrchecker.data.api
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.unava.dia.mmrchecker.BuildConfig
-import okhttp3.*
+import okhttp3.CipherSuite
+import okhttp3.ConnectionSpec
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.TlsVersion
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.*
 
+object RetrofitFactory {
 
-object ApiFactory {
     private var interceptor = Interceptor { chain ->
         val newUrl = chain.request().url()
             .newBuilder()
@@ -26,9 +30,7 @@ object ApiFactory {
         .addInterceptor(interceptor)
         .build()
 
-    val apiInstance: APIInterface = retrofit().create(APIInterface::class.java)
-
-    private fun retrofit(): Retrofit = Retrofit.Builder()
+    fun retrofit(): Retrofit = Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(BuildConfig.SERVER_URL)
         .addConverterFactory(MoshiConverterFactory.create())

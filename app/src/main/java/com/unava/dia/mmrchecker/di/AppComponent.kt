@@ -2,6 +2,7 @@ package com.unava.dia.mmrchecker.di
 
 import android.app.Application
 import com.unava.dia.mmrchecker.MmrCheckerApp
+import com.unava.dia.mmrchecker.di.network.NetworkModule
 import com.unava.dia.mmrchecker.di.network.RepositoryModule
 import com.unava.dia.mmrchecker.di.viewModel.ViewModelModule
 import dagger.BindsInstance
@@ -16,7 +17,7 @@ import javax.inject.Singleton
         AppModule::class,
         ActivityBuilder::class,
         ViewModelModule::class,
-        RepositoryModule::class
+        NetworkModule::class
     ]
 )
 interface AppComponent {
